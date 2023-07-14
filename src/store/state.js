@@ -1,5 +1,6 @@
 export default {
   dogs: [],
   dog: null,
-  isLoading: false
+  isLoading: false,
+  effect: null
 }

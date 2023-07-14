@@ -9,3 +9,7 @@ export const SET_DOG = (state, dog) => {
 export const LOADING_STATUS = (state, loadingState) => {
   state.isLoading = loadingState
 }
+
+export const FILTER_TRANSFORM = (state, filterState) => {
+  state.effect = filterState
+}

@@ -15,6 +15,7 @@ const router = createRouter({
       component: DogListView,
     },
     {
+      // path: '/dog',
       path: '/dogs/:id',
       component: DogViewVue,
       name: 'dog',

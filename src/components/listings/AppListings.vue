@@ -32,7 +32,7 @@ export default {
             grid 
             grid-cols-1 
             xs:grid-cols-2 
-            md:grid-cols-3 lg:grid-cols-4 gap-8
+            sm:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6
           "
     >
       <ListCard v-for="dog in dogs" :key="dog" :dog="dog" />
