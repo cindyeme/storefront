@@ -1,7 +1,6 @@
 <script setup>
 import AppContainer from '../AppContainer.vue'
 import AppLogo from './AppLogo.vue'
-import AppSearch from './AppSearch.vue'
 import UserMenu from './UserMenu.vue'
 </script>
 
@@ -11,7 +10,6 @@ import UserMenu from './UserMenu.vue'
       <AppContainer>
         <div class="flex items-center justify-between gap-3 md:gap-0">
           <AppLogo />
-          <AppSearch />
           <UserMenu />
         </div>
       </AppContainer>

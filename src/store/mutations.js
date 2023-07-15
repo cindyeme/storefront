@@ -13,3 +13,7 @@ export const LOADING_STATUS = (state, loadingState) => {
 export const FILTER_TRANSFORM = (state, filterState) => {
   state.effect = filterState
 }
+
+export const SET_FILTERED_IMAGES = (state, images) => {
+  state.filteredDogImages = images
+}

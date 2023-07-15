@@ -23,3 +23,12 @@ export const getDog = async ({ commit }, dogId) => {
 export const applyFilterToDog = ({ commit }, effect) => {
   commit('FILTER_TRANSFORM', effect)
 }
+
+export const filterDogImages = ({ commit, state }, breed) => {
+  const filteredImages = state.dogs.filter(image => {
+    const imageBreed = image.split('/')[4];
+    return imageBreed.includes(breed.toLowerCase());
+  });
+  commit('SET_FILTERED_IMAGES', filteredImages)
+
+};

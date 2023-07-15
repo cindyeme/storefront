@@ -1,11 +1,10 @@
 <template>
   <AppContainer>
-    <div class="grid grid-cols-12 pt-32 gap-8">
-      <div class="col-span-full md:col-span-5 h-full">
+    <div class="grid grid-cols-2 pt-32 gap-8">
+      <div class="col-span-full md:col-span-1">
         <div class="flex flex-col space-y-12">
           <CloudImage imageName="dog" />
-          <!-- <img src="http://via.placeholder.com/640x360" class="w-100 rounded-xl" /> -->
-          <div class="flex items-center space-x-3">
+          <div class="flex items-center flex-wrap gap-4">
             <button
               class="rounded px-4 py-3 lg:text-lg text-white bg-teal-500"
               @click="handleFilterChange('cartoonify')"
@@ -24,10 +23,16 @@
             >
               Sepia
             </button>
+            <button
+              class="rounded px-4 py-3 lg:text-lg text-white bg-gray-400"
+             @click="handleFilterChange(null)"
+            >
+              Clear effect
+            </button>
           </div>
         </div>
       </div>
-      <div class="col-span-full md:col-span-7">
+      <div class="col-span-full md:col-span-1">
         <div class="flex flex-col space-y-5">
           <h1 class="text-2xl font-bold">Caucasian Shepherd Dog</h1>
 

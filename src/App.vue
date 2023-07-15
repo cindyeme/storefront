@@ -6,7 +6,6 @@ import AppNavbar from './components/navbar/AppNavbar.vue';
 <template>
   <header>
     <AppNavbar />
-
   </header>
 
   <RouterView />
