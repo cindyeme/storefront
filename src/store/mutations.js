@@ -1,6 +1,9 @@
 export const SET_DOGS = (state, dogs) => {
   state.dogs = dogs
 }
+export const ADD_DOGS = (state, dogs) => {
+  state.dogs = [...state.dogs, ...dogs]
+}
 
 export const SET_DOG = (state, dog) => {
   state.dog = dog

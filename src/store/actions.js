@@ -1,24 +1,27 @@
 import Dog from '../api/Dog'
-// I could use vue-query
+// import vue-query
 
-// Initialize the cache variable outside the action function
-let dogCache = [];
-console.log({dogCache})
 export const getDogs = async ({ commit }) => {
   commit('LOADING_STATUS', true)
-
-  // Check if the cache is already populated
-  if (dogCache.length > 0) {
-    commit('SET_DOGS', dogCache)
-    commit('LOADING_STATUS', false)
-    return
-  }
-
   try {
-    const response = await Dog.all()
-    dogCache = response.data.message // Store the fetched dog images in the cache
-    commit('SET_DOGS', dogCache)
+    const response = await Dog.all(100)
+    commit('SET_DOGS', response.data.message)
     commit('LOADING_STATUS', false)
+
+    // const handleScroll = async () => {
+    //   const bottomMarker = this.$refs.bottomMarker
+    //   const rect = bottomMarker.getBoundingClientRect()
+    //   if (rect.top <= window.innerHeight) {
+    //     window.removeEventListener('scroll', handleScroll)
+    //     const nextResponse = await Dog.all(50)
+    //     commit('ADD_DOGS', nextResponse.data.message)
+    //     if (nextResponse.data.message.length > 0) {
+    //       window.addEventListener('scroll', handleScroll)
+    //     }
+    //   }
+    // }
+
+    // window.addEventListener('scroll', handleScroll)
   } catch (error) {
     console.log(error)
   }
@@ -38,10 +41,10 @@ export const applyFilterToDog = ({ commit }, effect) => {
 }
 
 export const filterDogImages = ({ commit, state }, breed) => {
-  const filteredImages = state.dogs.filter(image => {
-    const imageBreed = image.split('/')[4];
-    return imageBreed.includes(breed.toLowerCase());
-  });
+  const filteredImages = state.dogs.filter((image) => {
+    const imageBreed = image.split('/')[4]
+    console.log({imageBreed, breed})
+    return imageBreed.includes(breed.toLowerCase())
+  })
   commit('SET_FILTERED_IMAGES', filteredImages)
-
-};
+}
