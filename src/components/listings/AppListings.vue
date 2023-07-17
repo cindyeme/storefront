@@ -40,10 +40,7 @@ export default {
 </script>
 
 <template>
-  <div v-if="isLoading">
-    <AppLoader />
-  </div>
-  <div class="pt-24" v-else>
+  <div class="pt-24">
     <div class="flex flex-col gap-3 items-center justify-center mb-6">
       <h1 class="text-xl md:text-[1.4rem] font-bold">Search Dogs by Breed</h1>
       <AppSearch>
@@ -63,20 +60,20 @@ export default {
         </button>
       </AppSearch>
     </div>
-
-    <div
-      v-if="filteredDogs.length > 0"
-      class="
-            grid 
-            grid-cols-1 
-            xs:grid-cols-2 
-            sm:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6
-          "
-    >
-      <ListCard v-for="dog in filteredDogs" :key="dog" :dog="dog" />
+    <div v-if="isLoading">
+      <AppLoader />
     </div>
     <div v-else>
-      <p class="text-center">No dogs found, search a different or clear the search term!</p>
+      <div
+        v-if="filteredDogs.length > 0"
+        class="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6"
+      >
+        <ListCard v-for="dog in filteredDogs" :key="dog" :dog="dog" />
+      </div>
+      <div class="mt-12 flex flex-col items-center justify-center gap-4" v-else>
+        <img src="/not-found.png" alt="not found" width="100" height="'100'" />
+        <p class="text-center">No dogs found, search a different or clear the search term!</p>
+      </div>
     </div>
   </div>
 </template>

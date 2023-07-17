@@ -1,10 +1,23 @@
 import Dog from '../api/Dog'
+// I could use vue-query
 
+// Initialize the cache variable outside the action function
+let dogCache = [];
+console.log({dogCache})
 export const getDogs = async ({ commit }) => {
   commit('LOADING_STATUS', true)
+
+  // Check if the cache is already populated
+  if (dogCache.length > 0) {
+    commit('SET_DOGS', dogCache)
+    commit('LOADING_STATUS', false)
+    return
+  }
+
   try {
     const response = await Dog.all()
-    commit('SET_DOGS', response.data.message)
+    dogCache = response.data.message // Store the fetched dog images in the cache
+    commit('SET_DOGS', dogCache)
     commit('LOADING_STATUS', false)
   } catch (error) {
     console.log(error)

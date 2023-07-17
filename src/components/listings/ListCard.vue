@@ -1,23 +1,8 @@
-<script setup>
-import { RouterLink } from 'vue-router'
-// import VueBlurHash from 'vue-blurhash'
-defineProps(['dog'])
-</script>
-
 <template>
   <div class="col-span-1 cursor-pointer group">
     <div class="flex flex-col w-full">
       <RouterLink :to="{ name: 'dog', params: { id: '1' } }">
         <div class="w-full relative mb-3">
-          <!-- <VueBlurHash
-            :src="dog"
-            hash="LdHfL}oJR$WBKnfi%3ofT0kCM{ay"
-            :width="300"
-            :height="400"
-            :resolutionX="32"
-            :resolutionY="32"
-            :punch="1"
-          /> -->
           <figure>
             <img
               class="object-cover w-full h-full xs:h-[300px] overflow-hidden transition rounded-xl bg-gray-400"
@@ -26,8 +11,57 @@ defineProps(['dog'])
               alt="Dog"
             />
           </figure>
-        </div></RouterLink
-      >
+          <!-- <div ref="imageObserver"></div> -->
+        </div>
+      </RouterLink>
     </div>
   </div>
 </template>
+
+<script setup>
+import { RouterLink } from 'vue-router'
+
+defineProps({ dog: String })
+// import { ref, onMounted, onUnmounted } from 'vue';
+
+// export default {
+//   components: {
+//     RouterLink
+//   },
+//   props: {
+//     dog: String
+//   },
+//   setup() {
+//     const imageObserver = ref(null);
+//     const observed = ref(false);
+
+//     const onIntersect = (entries) => {
+//       if (entries[0].isIntersecting) {
+//         observed.value = true;
+//         unobserve();
+//       }
+//     };
+
+//     const unobserve = () => {
+//       imageObserver.value.disconnect();
+//     };
+
+//     onMounted(() => {
+//       imageObserver.value = new IntersectionObserver(onIntersect, {
+//         rootMargin: '0px',
+//         threshold: 0.1
+//       });
+//       imageObserver.value.observe(imageObserver.value.parentNode);
+//     });
+
+//     onUnmounted(() => {
+//       unobserve();
+//     });
+
+//     return {
+//       imageObserver,
+//       observed
+//     };
+//   }
+// }
+</script>
