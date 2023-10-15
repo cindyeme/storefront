@@ -15,7 +15,7 @@ const getProducts = () => {
       isLoading.value = false
     })
     .catch((error) => {
-      console.error('There was an error!', error)
+      throw new Error(error);
     })
 }
 
