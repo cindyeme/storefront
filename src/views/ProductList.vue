@@ -14,6 +14,14 @@ const getProducts = () => {
       products.value = result
       isLoading.value = false
     })
+    .catch((error) => {
+      console.error('There was an error!', error)
+    })
+}
+
+const notAFunctionError = () => {
+  var someArray = [{ func: function () {} }]
+  someArray[1].func()
 }
 
 onMounted(() => {
@@ -31,7 +39,7 @@ onMounted(() => {
     <div v-else>
       <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
         <div v-for="p in products" :key="p.id">
-          <product-card :product="p" />
+          <product-card :product="p" @custom-click="notAFunctionError" />
         </div>
       </div>
     </div>
