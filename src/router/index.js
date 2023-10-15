@@ -1,27 +1,32 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import DogListView from '../views/DogList.vue'
-import DogViewVue from '../views/DogView.vue'
+import ProductList from '../views/ProductList.vue'
+import ProductView from '../views/ProductView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
-    // {
-    //   path: '/',
-    //   redirect: '/dogs'
-    // },
     {
       path: '/',
-      name: 'dogs',
-      component: DogListView,
+      name: 'products',
+      component: ProductList
     },
     {
-      // path: '/dog',
-      path: '/dogs/:id',
-      component: DogViewVue,
-      name: 'dog',
+      path: '/:id',
+      component: ProductView,
+      name: 'product',
       props: true
     }
-  ]
+  ],
+  scrollBehavior: (to) => {
+    if (to.hash) {
+      return {
+        el: to.hash,
+        behavior: 'smooth'
+      }
+    } else {
+      return { top: 0 }
+    }
+  }
 })
 
 export default router
