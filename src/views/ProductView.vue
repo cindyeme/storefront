@@ -28,7 +28,7 @@ onMounted(()=>{
 <template>
   <app-layout>
     <div v-if="isLoading">
-      <div class="fixed inset-0 w-full h-full grid place-items-center bg-teal-100/60 z-50">
+      <div class="fixed inset-0 w-full h-full grid place-items-center bg-teal-100/40 z-50">
         <spinner-icon />
       </div>
     </div>
