@@ -10,7 +10,7 @@ const app = createApp(App)
 
 Sentry.init({
   app,
-  dsn: import.meta.env.VITE_SENTRY_DSN,
+  dsn: 'https://a101fe16765e2bbec3b360d47837c9ef@o4506048173637632.ingest.sentry.io/4506051775365120',
   integrations: [
     new Sentry.BrowserTracing({
       // Set 'tracePropagationTargets' to control for which URLs distributed tracing should be enabled
