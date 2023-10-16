@@ -36,8 +36,8 @@ onMounted(() => {
       </div>
     </div>
     <div v-else>
-      <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
-        <div v-for="p in products" :key="p.id">
+      <div class="sm:grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        <div v-for="p in products" :key="p.id" class="mb-5 sm:mb-0">
           <product-card :product="p" />
         </div>
       </div>
