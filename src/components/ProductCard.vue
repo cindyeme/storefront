@@ -2,8 +2,8 @@
   <div class="card text-center">
     <VLazyImage :src="product.image" alt="product thumb" class="thumb" />
     <p class="font-bold text-gray-500 m-4 truncate">{{ product.title }}</p>
-    <!-- <RouterLink :to="`/${product.id}`"><span class="btn mt-4 mb-1">View details</span></RouterLink> -->
-    <button @click="$emit('customClick')" class="btn mt-4 mb-1">Throw error</button>
+    <RouterLink :to="`/${product.id}`"><span class="btn mt-4 mb-1">View details</span></RouterLink>
+    <!-- <button @click="$emit('customClick')" class="btn mt-4 mb-1">Throw error</button> -->
   </div>
 </template>
 

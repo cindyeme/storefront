@@ -23,6 +23,11 @@ const fetchProductId = () => {
     })
 }
 
+const notAFunctionError = () => {
+  var someArray = [{ func: function () {} }]
+  someArray[1].func()
+}
+
 onMounted(() => {
   fetchProductId()
 })
@@ -36,7 +41,7 @@ onMounted(() => {
       </div>
     </div>
     <div v-else>
-      <product-details :product="product" />
+      <product-details :product="product" @custom-click="notAFunctionError" />
     </div>
   </app-layout>
 </template>

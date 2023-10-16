@@ -19,14 +19,9 @@ const getProducts = () => {
     })
 }
 
-// const notAFunctionError = () => {
-//   var someArray = [{ func: function () {} }]
-//   someArray[1].func()
+// const throwError = async () => {
+//   throw new Error('Sentry Error')
 // }
-
-const throwError = () => {
-  throw new Error('Sentry Error')
-}
 
 onMounted(() => {
   getProducts()
@@ -43,7 +38,7 @@ onMounted(() => {
     <div v-else>
       <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
         <div v-for="p in products" :key="p.id">
-          <product-card :product="p" @custom-click="throwError" />
+          <product-card :product="p" />
         </div>
       </div>
     </div>
