@@ -5,7 +5,7 @@
         <VLazyImage
           :src="product.image"
           alt="product img"
-          class="mx-auto my-7 max-w-[400px] md:max-w-full lg:max-w-[400px]"
+          class="mx-auto my-7 max-w-full lg:max-w-[400px]"
         />
       </div>
       <div class="p-7">
