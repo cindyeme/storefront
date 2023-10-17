@@ -24,7 +24,7 @@ const fetchProductId = () => {
 }
 
 const notAFunctionError = () => {
-  var someArray = [{ func: function () {} }]
+  let someArray = [{ func: function () {} }]
   someArray[1].func()
 }
 
